@@ -1,0 +1,15 @@
+[project]
+name = "EntranceRandomizer"
+version = "0.0"
+authors = [{ name = "EdricY" }]
+description = """\
+Randomizes Entrances. Nothing else for now. Probably should be used with a fully unlocked character.
+"""
+
+[project.urls]
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/EntranceRandomizer"
+
+[tool.sdkmod]
+name = "EntranceRandomizer"
+license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/EntranceRandomizer/EntranceRandomizer.sdkmod"
