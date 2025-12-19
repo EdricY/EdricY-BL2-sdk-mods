@@ -240,26 +240,11 @@ def on_enable():
     print("enabled")
     init_seeded_dict()
 
-@keybind("Travel Test", "N", description="Test Travel")
+@keybind("Emergency Teleport", "N", description="If you get stuck, emergency teleport back to Claptrap's Igloo")
 def emergency_travel():
     gameinfo = unrealsdk.find_all("WillowCoopGameInfo")[-1]
     with prevent_hooking_direct_calls():
-        
-        # gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.GlacialIgloo"))
-        gameinfo.TravelToStation(unrealsdk.find_object("LevelTravelStationDefinition", "GD_Orchid_LevelTravel.OasisTown.OasisTownToSpire"))
-
-    # print(mod_instance.settings_file)
-    # print(get_pc().GetWillowGlobals())
-    # print(unrealsdk.find_all("WillowGameInfo"))
-    # print(unrealsdk.find_all("WillowCoopGameInfo")[-1])
-    # gameinfo = unrealsdk.find_all("WillowCoopGameInfo")[-1]
-    
-    # # WillowGameInfo
-    # with prevent_hooking_direct_calls():
-    #     # FastTravelStationDefinition
-    #     gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.GlacialIgloo"))
-    #     # gameinfo.TravelToStation(unrealsdk.find_object("LevelTravelStationDefinition", "GD_LevelTravelStations.IcetoFrost"))
-
+        gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.GlacialIgloo"))
 
 @hook("WillowGame.WillowPlayerPawn:DoSprint")
 def sprint_pressed(self, caller: unreal.UObject, function: unreal.UFunction, params: unreal.WrappedStruct):
