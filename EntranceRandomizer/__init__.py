@@ -72,8 +72,8 @@ orig_entrance_dict = {
     "GD_LevelTravelStations.Zone2.CreatureSlaughterToPandoraPark": "GD_LevelTravelStations.Zone2.PandoraParkToCreatureSlaughter",
     "GD_LevelTravelStations.Zone2.PandoraParkToCreatureSlaughter": "GD_LevelTravelStations.Zone2.CreatureSlaughterToPandoraPark",
     "GD_LevelTravelStations.Zone2.GrassToHyperionCity": "GD_LevelTravelStations.Zone2.HyperionCityToGrass",
-    "GD_LevelTravelStations.Zone2.GrassToLuckys": "GD_LevelTravelStations.Zone2.GrassToLuckys",
-    "GD_LevelTravelStations.Zone2.LuckysToGrass": "GD_LevelTravelStations.Zone2.LuckysToGrass",
+    "GD_LevelTravelStations.Zone2.GrassToLuckys": "GD_LevelTravelStations.Zone2.LuckysToGrass",
+    "GD_LevelTravelStations.Zone2.LuckysToGrass": "GD_LevelTravelStations.Zone2.GrassToLuckys",
     "GD_LevelTravelStations.Zone2.GrassToPandoraPark": "GD_LevelTravelStations.Zone2.PandoraParkToGrass",
     "GD_LevelTravelStations.Zone3.AshToCraterLake": "GD_LevelTravelStations.Zone3.CraterLakeToAsh",
     "GD_LevelTravelStations.Zone3.AshToFinalBossAscent": "GD_LevelTravelStations.Zone3.FinalBossAscentToAsh",
@@ -222,14 +222,13 @@ def pathname(obj):
 
 @hook("WillowGame.WillowGameInfo:TravelToStation")
 def travel_to_station(self, caller: unreal.UObject, function: unreal.UFunction, params: unreal.WrappedStruct):
-    print(self)
-    print(caller.DestTravelStation)
     pn = pathname(caller.DestTravelStation)
     rand_st_name = entrance_dict.get(pn)
     if rand_st_name is None:
         print("not randomized: " + pn)
         return
-    print("orig dest: " + pn)
+    # print("orig dest: " + pn)
+    # print("randomized dest: " + rand_st_name)
     st = unrealsdk.find_object("LevelTravelStationDefinition", rand_st_name)
     caller.DestTravelStation = st
     with prevent_hooking_direct_calls():
@@ -238,6 +237,7 @@ def travel_to_station(self, caller: unreal.UObject, function: unreal.UFunction, 
 
 def on_enable():
     print("enabled")
+    show_chat_message("Seed set to " + str(seed_option.value))
     init_seeded_dict()
 
 @keybind("Emergency Teleport", "N", description="If you get stuck, emergency teleport back to Claptrap's Igloo")
@@ -245,6 +245,10 @@ def emergency_travel():
     gameinfo = unrealsdk.find_all("WillowCoopGameInfo")[-1]
     with prevent_hooking_direct_calls():
         gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.GlacialIgloo"))
+        # gameinfo.TravelToStation(unrealsdk.find_object("LevelTravelStationDefinition", "GD_LevelTravelStations.Zone2.BossCliffsToCliffs"))
+        # gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.DamTop"))
+        # gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.Zone1.IceEast"))
+        # gameinfo.TravelToStation(unrealsdk.find_object("FastTravelStationDefinition", "GD_FastTravelStations.FyrestoneOneWay"))
 
 @hook("WillowGame.WillowPlayerPawn:DoSprint")
 def sprint_pressed(self, caller: unreal.UObject, function: unreal.UFunction, params: unreal.WrappedStruct):
