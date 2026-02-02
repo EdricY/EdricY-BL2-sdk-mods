@@ -1,0 +1,15 @@
+[project]
+name = "Always On Level"
+version = "0.0"
+authors = [{ name = "EdricY" }]
+description = """\
+Make enemies always on level.
+"""
+
+[project.urls]
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/AlwaysOnLevel"
+
+[tool.sdkmod]
+name = "AlwaysOnLevel"
+license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/AlwaysOnLevel/AlwaysOnLevel.sdkmod"
