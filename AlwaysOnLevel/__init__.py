@@ -3,23 +3,35 @@ from mods_base import build_mod, get_pc, hook, SpinnerOption
 from unrealsdk.hooks import Block, prevent_hooking_direct_calls
 
 @hook("WillowGame.WillowPawn:SetGameStage")
-def set_game_stage(self, caller: unreal.UObject, function: unreal.UFunction, params: unreal.WrappedStruct):
-  if self.Class.Name == "WillowPlayerPawn":
+@hook("WillowGame.WillowInteractiveObject:SetGameStage")
+@hook("WillowGame.WillowPawn:SetGameStageForSpawnedInventory")
+@hook("WillowGame.WillowAIPawn:SetGameStageForSpawnedInventory")
+def set_game_stage(obj: unreal.UObject, args: unreal.WrappedStruct, ret, func: unreal.BoundFunction):
+  if obj.Class.Name == "WillowPlayerPawn":
     return None
+
+  try:
+    arg_level = args.NewGameStage
+  except:
+    arg_level = args.NewInventoryGameStage
   
-  # print(f"set_game_stage {caller.NewGameStage}")
   level = get_pc().PlayerReplicationInfo.ExpLevel
 
   with prevent_hooking_direct_calls():
     if oid_dir.value == "Both":
-      params(level)
+      func(level)
       return Block
-    elif oid_dir.value == "Up" and caller.NewGameStage < level:
-      params(level)
+    elif oid_dir.value == "Up" and arg_level < level:
+      func(level)
       return Block
-    elif oid_dir.value == "Down" and caller.NewGameStage > level:
-      params(level)
+    elif oid_dir.value == "Down" and arg_level > level:
+      func(level)
       return Block
+
+# TODO: maybe look into these
+# WillowGame.MissionDefinition:SetGameStage
+# WillowGame.WillowPlayerController:SetGameStageForRegion
+# WillowGame.WillowRegionDefinition:SetGameStageOverride
 
 oid_dir = SpinnerOption(
     "Level Direction",
@@ -32,4 +44,7 @@ oid_dir = SpinnerOption(
     ),
 )
 
-build_mod(hooks=[set_game_stage], options=[oid_dir])
+build_mod(
+  hooks=[set_game_stage],
+  options=[oid_dir]
+)
