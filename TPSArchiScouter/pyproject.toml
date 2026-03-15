@@ -1,0 +1,15 @@
+[project]
+name = "TPSArchiScouter"
+version = "0.0"
+authors = [{ name = "EdricY" }]
+description = """\
+Scouter for future Archipelago implementation.
+"""
+
+[project.urls]
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/TPSArchiScouter"
+
+[tool.sdkmod]
+name = "TPSArchiScouter"
+license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/TPSArchiScouter/TPSArchiScouter.sdkmod"
