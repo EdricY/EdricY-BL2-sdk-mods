@@ -1,0 +1,15 @@
+[project]
+name = "Infinite Backpack"
+version = "0.0"
+authors = [{ name = "EdricY" }]
+description = """\
+Remove Backpack Space Limits.
+"""
+
+[project.urls]
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/InfiniteBackpack"
+
+[tool.sdkmod]
+name = "InfiniteBackpack"
+license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/InfiniteBackpack/InfiniteBackpack.sdkmod"
