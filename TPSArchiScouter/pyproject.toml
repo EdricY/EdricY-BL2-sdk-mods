@@ -3,7 +3,7 @@ name = "TPSArchiScouter"
 version = "0.0"
 authors = [{ name = "EdricY" }]
 description = """\
-Scouter for future Archipelago implementation.
+Scouter for future Archipelago implementation. (this probably works for both TPS and BL2, maybe AoDK too)
 """
 
 [project.urls]
