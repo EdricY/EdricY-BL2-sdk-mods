@@ -20,9 +20,9 @@ def sprint_pressed(self, caller: unreal.UObject, function: unreal.UFunction, par
 
 @hook("WillowGame.WillowAIPawn:Died")
 def on_killed_enemy(self, caller: unreal.UObject, function: unreal.UFunction, params: unreal.WrappedStruct):
-    print(self.AIClass.Name)
+    print(self.BalanceDefinitionState.BalanceDefinition.Name)
     print(self.GetTransformedName())
-    enemy_key = self.AIClass.Name
+    enemy_key = self.BalanceDefinitionState.BalanceDefinition.Name
     log_to_file(f"killed: {enemy_key}")
 
 @hook("WillowGame.Behavior_DiscoverLevelChallengeObject:ApplyBehaviorToContext")
