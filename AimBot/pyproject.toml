@@ -1,0 +1,15 @@
+[project]
+name = "Aimbot"
+version = "0.0"
+authors = [{ name = "EdricY" }]
+description = """\
+Remove Backpack Space Limits.
+"""
+
+[project.urls]
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/Aimbot"
+
+[tool.sdkmod]
+name = "Aimbot"
+license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/Aimbot/Aimbot.sdkmod"
