@@ -7,9 +7,9 @@ Remove Backpack Space Limits.
 """
 
 [project.urls]
-Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/InfiniteBackpack"
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/tree/main/InfiniteBackpack"
 
 [tool.sdkmod]
 name = "InfiniteBackpack"
 license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
-download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/InfiniteBackpack/InfiniteBackpack.sdkmod"
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/tree/main/InfiniteBackpack/InfiniteBackpack.sdkmod"

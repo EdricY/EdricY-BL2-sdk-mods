@@ -7,9 +7,9 @@ Make enemies always on level.
 """
 
 [project.urls]
-Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/AlwaysOnLevel"
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/tree/main/AlwaysOnLevel"
 
 [tool.sdkmod]
 name = "AlwaysOnLevel"
 license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
-download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/AlwaysOnLevel/AlwaysOnLevel.sdkmod"
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/blob/main/AlwaysOnLevel/AlwaysOnLevel.sdkmod"

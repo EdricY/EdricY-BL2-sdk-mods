@@ -7,9 +7,9 @@ Randomizes Entrances. Nothing else for now. Probably should be used with a fully
 """
 
 [project.urls]
-Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/EntranceRandomizer"
+Source = "https://github.com/EdricY/EdricY-BL2-sdk-mods/tree/main/EntranceRandomizer"
 
 [tool.sdkmod]
 name = "EntranceRandomizer"
 license = {name = "MIT", url = "https://choosealicense.com/licenses/mit/" }
-download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/EntranceRandomizer/EntranceRandomizer.sdkmod"
+download = "https://github.com/EdricY/EdricY-BL2-sdk-mods/blob/main/EntranceRandomizer/EntranceRandomizer.sdkmod"
